@@ -7,8 +7,8 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Preva - Gérez l&apos;hypertension en 30s, pas 5min.",
-  description: "Le carnet digital Preva qui rappelle vos patients, garantit des mesures fiables et fait chuter leur pression artérielle moyenne de 5 mmHg en 3 mois.",
+  title: "Patient1st - Ne subissez plus l'hypertension. Agissez.",
+  description: "Le carnet tensionnel digital qui change la donne contre l'hypertension.",
   icons: {
     icon: '/image/favicon.ico',
   },

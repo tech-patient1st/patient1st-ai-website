@@ -18,7 +18,7 @@ export default function Home() {
             Ne subissez plus l'hypertension. Agissez.
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              <strong>Le carnet digital qui change la donne contre l'hypertension.</strong>
+              <strong>Le carnet tensionnel digital qui change la donne contre l'hypertension.</strong>
               <br />
               Vos patients mesurent mieux, vous intervenez plus tôt. Résultat : plus d'adhésion, moins de complications, une tension maîtrisée rapidement.
             </p>
@@ -224,7 +224,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 onClick={() => trackWebEvent('cta_click', { action: 'book_demo_howitworks', location: 'how_it_works_section' })}
               >
-                Créer mon carnet patient
+                Commencer le suivi d'un patient
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
