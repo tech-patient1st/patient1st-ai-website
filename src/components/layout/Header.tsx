@@ -67,7 +67,7 @@ const Header = () => {
             variant="default" 
             className="bg-yellow-400 text-primary hover:bg-yellow-500 font-medium focus-visible:ring-yellow-500"
           >
-            <Link href="/login" onClick={() => trackWebEvent('cta_click', { action: 'login_click', location: 'header' }) }> 
+            <Link href="https://doctor.patient1st.ai/" onClick={() => trackWebEvent('cta_click', { action: 'login_click', location: 'header' }) }> 
               Se connecter
             </Link>
           </Button>
