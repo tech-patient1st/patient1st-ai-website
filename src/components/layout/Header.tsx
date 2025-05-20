@@ -62,11 +62,20 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-        <Button 
-              asChild
-              size="lg" 
-              className="bg-secondary hover:bg-secondary/90 text-primary text-lg px-8 py-6 rounded-lg font-semibold shadow-lg"
-            >
+          <Link 
+            href="https://preva.app" 
+            className="text-white hover:text-secondary font-medium transition-colors" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => trackWebEvent('navigation_click', { destination: 'preva', location: 'header' })}
+          >
+            Espace patient
+          </Link>
+          <Button 
+            asChild
+            size="lg" 
+            className="bg-secondary hover:bg-secondary/90 text-primary text-lg px-8 py-6 rounded-lg font-semibold shadow-lg"
+          >
             <Link href="https://doctor.patient1st.ai/" onClick={() => trackWebEvent('cta_click', { action: 'login_click', location: 'header' }) }> 
               Se connecter
             </Link>
