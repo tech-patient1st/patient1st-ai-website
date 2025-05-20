@@ -48,7 +48,7 @@ export default function Home() {
                 Optimisation du temps médical
               </span> */}
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Fini le papier : créez, partagez et suivez vos carnets tensionnels<br />
+                Fini le papier : créez et analysez vos carnets tensionnels digitalisés<br />
                 <span className="text-secondary">en 1 clic</span>.
               </h2>
               <p className="text-lg text-white/80 mb-8 leading-relaxed">
