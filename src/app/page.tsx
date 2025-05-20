@@ -89,27 +89,29 @@ export default function Home() {
               </a>
             </Button>
           </div>
-          {/* Floating Metrics Overlay */}
-          <div className="absolute left-1/2 -bottom-20 transform -translate-x-1/2 w-full max-w-5xl px-4 mt-20">
+          {/* Floating Metrics Overlay - Responsive */}
+          <div
+            className="w-full max-w-5xl px-4 mt-8 md:mt-20 md:absolute md:left-1/2 md:-bottom-20 md:transform md:-translate-x-1/2"
+          >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
                 <NotebookText size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
-              <CountUp end={1000} duration={2} prefix="+" />
+                  <CountUp end={1000} duration={2} prefix="+" />
                 </div>
                 <div className="text-muted-foreground text-base">carnets tensionnels réalisés</div>
               </div>
               <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
                 <UsersRound size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
-              <CountUp end={800} duration={2} prefix="+" />
+                  <CountUp end={800} duration={2} prefix="+" />
                 </div>
                 <div className="text-muted-foreground text-base">patients suivis</div>
               </div>
               <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
                 <Heart size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
-              <CountUp end={96} duration={2} suffix="%" />
+                  <CountUp end={96} duration={2} suffix="%" />
                 </div>
                 <div className="text-muted-foreground text-base">patients satisfaits</div>
               </div>
