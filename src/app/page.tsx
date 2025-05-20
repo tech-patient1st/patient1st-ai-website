@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Clock, Eye, CheckCircle2, Send, MailX, Rocket, ArrowRight, UserPlus, Smartphone, HeartPulse, LineChart, CalendarClock, NotebookText, UsersRound, Heart } from "lucide-react";
+import { Clock, Eye, CheckCircle2, Send, MailX, Rocket, ArrowRight, NotebookText, UsersRound, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { trackWebEvent } from "@/lib/analytics";
