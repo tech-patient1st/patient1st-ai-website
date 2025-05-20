@@ -38,9 +38,9 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-primary text-white z-50">
+    <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-primary/80 backdrop-blur-md rounded-full shadow-lg border border-white/10 max-w-4xl w-[95vw] px-6 py-2 text-white flex items-center justify-between">
       <NavigationSchema />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+      <div className="flex w-full items-center justify-between gap-8">
         {/* Logo */}
         <Link 
           href="/" 
@@ -62,11 +62,11 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Button 
-            asChild 
-            variant="default" 
-            className="bg-yellow-400 text-primary hover:bg-yellow-500 font-medium focus-visible:ring-yellow-500"
-          >
+        <Button 
+              asChild
+              size="lg" 
+              className="bg-secondary hover:bg-secondary/90 text-primary text-lg px-8 py-6 rounded-lg font-semibold shadow-lg"
+            >
             <Link href="https://doctor.patient1st.ai/" onClick={() => trackWebEvent('cta_click', { action: 'login_click', location: 'header' }) }> 
               Se connecter
             </Link>
