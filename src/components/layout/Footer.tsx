@@ -147,10 +147,11 @@ const Footer = () => {
               >
                 Politique de confidentialité
               </Link>
+              
               <Link 
-                href="/cgv" 
+                href="/cgv-medecin" 
                 className="hover:text-primary-foreground transition-colors"
-                onClick={() => trackWebEvent('navigation_click', { destination: 'cgv', location: 'footer' })}
+                onClick={() => trackWebEvent('navigation_click', { destination: 'cgv-medecin', location: 'footer' })}
               >
                 CGV
               </Link>
