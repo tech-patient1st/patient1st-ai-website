@@ -4,39 +4,50 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
+// Local Klaro type definitions removed as global.d.ts should handle Window.klaro
+/*
 interface KlaroConfig {
-  // Define a basic structure for Klaro config if known, otherwise use 'any'
   [key: string]: any;
 }
 interface KlaroInstance {
   setup: (config: KlaroConfig) => void;
   show: (config?: KlaroConfig, modal?: boolean) => void;
 }
+*/
 
+// WindowWithDataLayer interface and local window declaration removed.
+// Relying on the globally augmented Window type from src/types/global.d.ts
+/*
 interface WindowWithDataLayer extends Window {
-  dataLayer: Array<Record<string, any> | any[]>; // Allow objects or arrays for dataLayer items
+  dataLayer: Array<Record<string, any> | any[]>;
   klaro?: KlaroInstance;
 }
-
 declare const window: WindowWithDataLayer;
+*/
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
-// Simplified gtag function for pushing consent and other commands
-function gtag(...args: any[]) {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(args); // Push the arguments array directly
+// gtag function is likely not needed here anymore if not setting default consent.
+// If you have other uses for a gtag shim, keep it, otherwise it can be removed.
+/*
+function gtag(command: 'consent', action: 'default' | 'update', parameters: Record<string, string | number | boolean | undefined>): void;
+function gtag(...args: unknown[]): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function gtag(...args: any[]) { 
+  if (typeof window !== 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(args); 
+  }
 }
+*/
 
 export function pageview(url: string) {
-  if (typeof window.dataLayer !== 'undefined') {
-    window.dataLayer.push({ // This is a standard dataLayer event object
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push({
       event: 'pageview',
       page: url,
     });
   } else {
-    // Fallback for environments where dataLayer might not be initialized yet
-    // or if GTM script failed to load.
     console.log('GTM dataLayer not found. Pageview event:', {
       event: 'pageview',
       page: url,
@@ -48,20 +59,19 @@ export default function GoogleTagManager() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Set default consent state *before* GTM script is even requested.
-  // GTM will read this when it initializes.
+  // Default consent gtag call REMOVED
+  /*
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'analytics_storage': 'denied',
-    'functionality_storage': 'denied', 
+    'functionality_storage': 'denied',
     'personalization_storage': 'denied',
-    'security_storage': 'granted', 
-    'wait_for_update': 500 
+    'security_storage': 'granted',
+    'wait_for_update': 500
   });
+  */
 
   useEffect(() => {
-    // Pageview tracking logic remains, it will fire after GTM is loaded
-    // and if analytics_storage is granted.
     if (pathname && GTM_ID) {
       const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
       pageview(url);
@@ -75,7 +85,6 @@ export default function GoogleTagManager() {
 
   return (
     <>
-      {/* GTM script is loaded after default consent is set */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -89,7 +98,6 @@ export default function GoogleTagManager() {
   `,
         }}
       />
-      {/* GTM NoScript fallback */}
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}

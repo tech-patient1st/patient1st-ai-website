@@ -1,7 +1,8 @@
 // src/lib/analytics.ts
 type EventPayload = Record<string, string | number | boolean | null | undefined>;
 
-// Declare dataLayer on window type if not already done elsewhere
+// Conflicting Window.dataLayer declaration removed - now handled by src/types/global.d.ts
+/*
 declare global {
   interface Window {
     dataLayer: Array<{
@@ -11,9 +12,11 @@ declare global {
     }>;
   }
 }
+*/
 
 export const trackWebEvent = (name: string, params: EventPayload = {}) => {
   // Initialise the dataLayer if GTM hasn't created it yet
+  // window.dataLayer is now globally typed
   window.dataLayer = window.dataLayer || [];
 
   window.dataLayer.push({
@@ -25,6 +28,7 @@ export const trackWebEvent = (name: string, params: EventPayload = {}) => {
 
 // Legacy function for backward compatibility
 export const pageview = (url: string) => {
+  // window.dataLayer is now globally typed
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'pageview',
