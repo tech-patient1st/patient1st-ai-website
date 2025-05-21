@@ -4,17 +4,33 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
+interface KlaroConfig {
+  // Define a basic structure for Klaro config if known, otherwise use 'any'
+  [key: string]: any;
+}
+interface KlaroInstance {
+  setup: (config: KlaroConfig) => void;
+  show: (config?: KlaroConfig, modal?: boolean) => void;
+}
+
 interface WindowWithDataLayer extends Window {
-  dataLayer: Array<Record<string, unknown>>;
+  dataLayer: Array<Record<string, any> | any[]>; // Allow objects or arrays for dataLayer items
+  klaro?: KlaroInstance;
 }
 
 declare const window: WindowWithDataLayer;
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
+// Simplified gtag function for pushing consent and other commands
+function gtag(...args: any[]) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(args); // Push the arguments array directly
+}
+
 export function pageview(url: string) {
   if (typeof window.dataLayer !== 'undefined') {
-    window.dataLayer.push({
+    window.dataLayer.push({ // This is a standard dataLayer event object
       event: 'pageview',
       page: url,
     });
@@ -32,9 +48,21 @@ export default function GoogleTagManager() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  // Set default consent state *before* GTM script is even requested.
+  // GTM will read this when it initializes.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'denied', 
+    'personalization_storage': 'denied',
+    'security_storage': 'granted', 
+    'wait_for_update': 500 
+  });
+
   useEffect(() => {
+    // Pageview tracking logic remains, it will fire after GTM is loaded
+    // and if analytics_storage is granted.
     if (pathname && GTM_ID) {
-      // Combine pathname and searchParams to form the full URL path
       const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
       pageview(url);
     }
@@ -47,6 +75,7 @@ export default function GoogleTagManager() {
 
   return (
     <>
+      {/* GTM script is loaded after default consent is set */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"

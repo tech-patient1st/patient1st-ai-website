@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleTagManager from "@/components/GoogleTagManager";
+import KlaroConsentManager from "@/components/KlaroConsentManager";
 import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
+        <KlaroConsentManager />
         <Header />
         <main className="flex-grow pt-20">
           {children}
