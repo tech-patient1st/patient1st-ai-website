@@ -75,7 +75,9 @@ export default function Home() {
             </div>
 
             {/* Right Column: Image Placeholder - REMOVING WRAPPER DIV */}
-            <Image src="/image/screenshots/dashboard.png" alt="Tableau de bord Preva" width={500} height={400} className="rounded-xl shadow-xl object-cover" />
+            <div className="flex justify-center items-center">
+              <Image src="/image/screenshots/dashboard.png" alt="Tableau de bord Preva" width={500} height={400} className="rounded-xl shadow-xl object-cover" />
+            </div>
           </div>
           {/* Button centered below the grid */}
           <div className="flex justify-center w-full mt-10 mb-20">
@@ -94,21 +96,21 @@ export default function Home() {
             className="w-full max-w-5xl px-4 mt-8 md:mt-20 md:absolute md:left-1/2 md:-bottom-20 md:transform md:-translate-x-1/2"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
+              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100 transition-transform hover:scale-105 duration-200">
                 <NotebookText size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
                   <CountUp end={1000} duration={2} prefix="+" />
                 </div>
                 <div className="text-muted-foreground text-base">carnets tensionnels réalisés</div>
               </div>
-              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
+              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100 transition-transform hover:scale-105 duration-200">
                 <UsersRound size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
                   <CountUp end={800} duration={2} prefix="+" />
                 </div>
                 <div className="text-muted-foreground text-base">patients suivis</div>
               </div>
-              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100">
+              <div className="flex flex-col items-center bg-white py-6 rounded-xl shadow-lg border border-gray-100 transition-transform hover:scale-105 duration-200">
                 <Heart size={40} className="text-primary mb-2" strokeWidth={2}/>
                 <div className="text-2xl font-bold mt-2 text-primary">
                   <CountUp end={96} duration={2} suffix="%" />
@@ -463,7 +465,7 @@ export default function Home() {
                 <div>
                   <div className="flex items-center mb-3 gap-1">
                     {Array.from({ length: 5 }, (_, i) => (
-                      <span key={`star-${i}`} className="text-secondary text-xl">★</span>
+                      <span key={`star-${testimonial.author}-${i}`} className="text-secondary text-xl">★</span>
                     ))}
                   </div>
                   <h3 className="font-semibold text-lg mb-2 text-gray-800">{testimonial.title}</h3>
