@@ -86,7 +86,7 @@ export default function Home() {
               size="lg" 
               className="bg-secondary hover:bg-secondary/90 text-primary text-lg px-8 py-6 rounded-lg font-semibold shadow-lg"
             >
-              <a href="https://calendly.com/charles-patient1st/introduction-patient1st" target="_blank" rel="noopener noreferrer" onClick={() => trackWebEvent('cta_click', { action: 'book_demo_problem_section', location: 'problem_solution_section' }) }>
+              <a href="https://cal.com/charles-patient1st/intro-patient1st" target="_blank" rel="noopener noreferrer" onClick={() => trackWebEvent('cta_click', { action: 'book_demo_problem_section', location: 'problem_solution_section' }) }>
                 Découvrir la solution
               </a>
             </Button>
@@ -260,7 +260,7 @@ export default function Home() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 rounded-lg font-semibold group shadow-md"
             >
               <a 
-                href="https://calendly.com/charles-patient1st/introduction-patient1st"
+                href="https://cal.com/charles-patient1st/intro-patient1st"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWebEvent('cta_click', { action: 'book_demo_howitworks', location: 'how_it_works_section' })}
@@ -367,7 +367,7 @@ export default function Home() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 rounded-lg font-semibold group shadow-md"
             >
               <a 
-                href="https://calendly.com/charles-patient1st/introduction-patient1st" 
+                href="https://cal.com/charles-patient1st/intro-patient1st" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={() => trackWebEvent('cta_click', { action: 'book_demo_impact', location: 'impact_section' })}
@@ -483,7 +483,7 @@ export default function Home() {
             size="lg" 
             className="mt-10 bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 rounded-lg font-semibold group shadow-md"
           >
-            <a href="https://calendly.com/charles-patient1st/introduction-patient1st" 
+            <a href="https://cal.com/charles-patient1st/intro-patient1st" 
                target="_blank" 
                rel="noopener noreferrer"
                onClick={() => trackWebEvent('cta_click', { action: 'book_demo_testimonials', location: 'testimonials_section' })}
@@ -505,6 +505,9 @@ export default function Home() {
             {[{
               question: "Est‑ce un dispositif médical ?",
               answer: "Non. Il s'agit d'un logiciel d'aide à la décision, sans diagnostic automatique. Son objectif est de faciliter le suivi et la communication des données d'automesure tensionnelle, conformément aux recommandations de la HAS."
+            }, {
+              question: "Comment puis-je présenter Patient1st à mes patients ?",
+              answer: "Vous pouvez leur expliquer que Patient1st est un carnet de tension digital sécurisé, conçu pour les aider à mieux suivre leur tension artérielle à la maison, conformément à vos recommandations. Indiquez-leur que cela vous permettra d'avoir des mesures fiables et organisées pour mieux adapter leur traitement et qu'ils recevront des rappels pour ne pas oublier de prendre leurs mesures avant leur prochaine consultation. Rassurez-les sur la simplicité d'utilisation et le fait que cela facilitera leur suivi."
             }, {
               question: "Combien ça coûte ?",
               answer: "Nous proposons une licence mensuelle par médecin, sans engagement. Le tarif exact et les options vous seront présentés en détail lors de la démonstration personnalisée de 15 minutes."
@@ -541,7 +544,7 @@ export default function Home() {
             Prêt à gagner du temps et prioriser vos consultations <br /> à plus forte valeur ajoutée ?
           </h2>
           <Button asChild size="lg" className="text-lg px-8 py-6 w-full md:w-auto">
-            <a href="https://calendly.com/charles-patient1st/introduction-patient1st" target="_blank" rel="noopener noreferrer" onClick={() => trackWebEvent('cta_click', { action: 'book_demo_final_cta', location: 'final_cta_section' }) }>
+            <a href="https://cal.com/charles-patient1st/intro-patient1st" target="_blank" rel="noopener noreferrer" onClick={() => trackWebEvent('cta_click', { action: 'book_demo_final_cta', location: 'final_cta_section' }) }>
               Je réserve une démo de 15 min
             </a>
           </Button>
