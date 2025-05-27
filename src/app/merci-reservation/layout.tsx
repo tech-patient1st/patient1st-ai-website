@@ -1,44 +1,39 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// import dynamic from 'next/dynamic'; // No longer needed here
-import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import "../globals.css";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 import { Suspense } from 'react';
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Patient1st - Ne subissez plus l'hypertension. Agissez.",
-  description: "Le carnet tensionnel digital qui change la donne contre l'hypertension.",
+  title: "Merci pour votre réservation - Patient1st",
+  description: "Votre rendez-vous a été confirmé avec succès. Découvrez les prochaines étapes.",
   icons: {
     icon: '/image/favicon.ico',
   },
 };
 
-export default function RootLayout({
+export default function MerciReservationLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr">
       <head>
         <LinkedInInsightTag />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow pt-20">
+        {/* No Header component here - that's the key difference */}
+        <main className="flex-grow">
           {children}
         </main>
-        <Footer />
         <Suspense fallback={null}>
           <GoogleTagManager />
         </Suspense>
       </body>
     </html>
   );
-}
+} 
