@@ -74,9 +74,41 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Right Column: Image Placeholder - REMOVING WRAPPER DIV */}
-            <div className="flex justify-center items-center">
-              <Image src="/image/screenshots/dashboard.png" alt="Tableau de bord Preva" width={500} height={400} className="rounded-xl shadow-xl object-cover" />
+            {/* Right Column: Modern Dual Image Showcase */}
+            <div className="relative">
+              {/* Main Image - Logbook (smaller) */}
+              <div className="relative z-10">
+                <Image 
+                  src="/image/screenshots/logbook.png" 
+                  alt="Carnet tensionnel digital Patient1st" 
+                  width={320} 
+                  height={400} 
+                  className="rounded-2xl shadow-2xl object-cover w-full max-w-xs mx-auto transform rotate-2 hover:rotate-0 transition-transform duration-300" 
+                />
+                {/* Floating badge for logbook */}
+                <div className="absolute -top-4 left-10 bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold shadow-lg z-20">
+                  📊 Carnet digital
+                </div>
+              </div>
+              
+              {/* Secondary Image - Classification (bigger) */}
+              <div className="absolute -bottom-8 -right-8 z-20">
+                <Image 
+                  src="/image/screenshots/classification-no-treatment.png" 
+                  alt="Classification automatique de l'hypertension" 
+                  width={450} 
+                  height={550} 
+                  className="rounded-xl shadow-xl object-cover transform -rotate-3 hover:rotate-0 transition-transform duration-300 border-4 border-white" 
+                />
+                {/* Floating badge for classification */}
+                <div className="absolute -top-5 -right-3 bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  🎯 Classification Intelligente
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/20 rounded-full blur-2xl -z-10" />
             </div>
           </div>
           {/* Button centered below the grid */}

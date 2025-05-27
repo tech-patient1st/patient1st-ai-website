@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// import dynamic from 'next/dynamic'; // No longer needed here
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import GoogleTagManager from "@/components/GoogleTagManager";
-import LinkedInInsightTag from "@/components/LinkedInInsightTag";
-import { Suspense } from 'react';
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,19 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        <LinkedInInsightTag />
-      </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow pt-20">
-          {children}
-        </main>
-        <Footer />
-        <Suspense fallback={null}>
-          <GoogleTagManager />
-        </Suspense>
+        {children}
       </body>
     </html>
   );
-}
+} 
