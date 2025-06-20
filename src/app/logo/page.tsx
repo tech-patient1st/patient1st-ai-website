@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Patient1st Logo - Available URLs',
@@ -27,9 +28,11 @@ export default function LogoPage() {
 
         <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
           <div className="flex justify-center mb-8">
-            <img
+            <Image
               src="/image/patient1st-fleur.svg"
               alt="Patient1st Logo"
+              width={128}
+              height={128}
               className="h-32 w-auto"
             />
           </div>

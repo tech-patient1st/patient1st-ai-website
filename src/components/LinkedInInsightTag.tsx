@@ -33,6 +33,7 @@ export default function LinkedInInsightTag() {
       
       {/* LinkedIn Insight Tag - Noscript fallback */}
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img height="1" width="1" style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=7269180&fmt=gif" />
       </noscript>
     </>

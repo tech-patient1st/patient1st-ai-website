@@ -19,7 +19,7 @@ export default function ThankYouPage() {
   // Track LinkedIn conversion when page loads
   useEffect(() => {
     // Ensure LinkedIn tracking is available
-    const linkedInTracker = (window as any).lintrk;
+    const linkedInTracker = window.lintrk;
     if (typeof window !== 'undefined' && linkedInTracker) {
       try {
         linkedInTracker('track', { conversion_id: 19972388 });
@@ -36,7 +36,7 @@ export default function ThankYouPage() {
     } else {
       // Fallback: try again after a short delay in case LinkedIn script is still loading
       const timer = setTimeout(() => {
-        const delayedLinkedInTracker = (window as any).lintrk;
+        const delayedLinkedInTracker = window.lintrk;
         if (typeof window !== 'undefined' && delayedLinkedInTracker) {
           try {
             delayedLinkedInTracker('track', { conversion_id: 19972388 });
