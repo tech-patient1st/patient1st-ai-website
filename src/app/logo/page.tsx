@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function LogoPage() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://patient1st.ai';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.patient1st.ai';
   
   const logoUrls = {
     api: `${baseUrl}/api/logo`,
