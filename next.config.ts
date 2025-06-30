@@ -19,8 +19,8 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Apply specific headers to image assets
-        source: '/image/(.*)',
+        // Apply specific headers to SVG images only
+        source: '/image/(.*)\\.svg',
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
@@ -33,6 +33,20 @@ const nextConfig: NextConfig = {
           {
             key: 'Content-Type',
             value: 'image/svg+xml',
+          },
+        ],
+      },
+      {
+        // Apply headers to other image assets (PNG, JPEG, etc.)
+        source: '/image/(.*)',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

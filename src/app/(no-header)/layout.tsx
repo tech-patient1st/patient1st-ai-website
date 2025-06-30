@@ -10,7 +10,6 @@ export default function NoHeaderLayout({
 }) {
   return (
     <>
-      {/* No Header component here - that's the key difference */}
       <main className="flex-grow">
         {children}
       </main>
