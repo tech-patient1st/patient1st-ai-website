@@ -4,7 +4,6 @@ import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleTagManager from "@/components/GoogleTagManager";
-import LinkedInInsightTag from "@/components/LinkedInInsightTag";
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export default function WithHeaderLayout({
 }>) {
   return (
     <>
-      <LinkedInInsightTag />
       <Header />
       <main className="flex-grow pt-20">
         {children}

@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2, Mail, ArrowRight, Clock, Users } from "lucide-react";
@@ -8,48 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trackWebEvent } from "@/lib/analytics";
 
-// TypeScript declaration for LinkedIn tracking
-declare global {
-  interface Window {
-    lintrk?: (action: string, data: { conversion_id: number }) => void;
-  }
-}
-
 export default function ThankYouPage() {
-  // Track LinkedIn conversion when page loads
-  useEffect(() => {
-    // Ensure LinkedIn tracking is available
-    const linkedInTracker = window.lintrk;
-    if (typeof window !== 'undefined' && linkedInTracker) {
-      try {
-        linkedInTracker('track', { conversion_id: 19972388 });
-        console.log('LinkedIn conversion tracked successfully');
-        // Also track with your existing analytics
-        trackWebEvent('linkedin_conversion', { 
-          action: 'booking_confirmation', 
-          location: 'thank_you_page',
-          conversion_id: 19972388 
-        });
-      } catch (error) {
-        console.error('Error tracking LinkedIn conversion:', error);
-      }
-    } else {
-      // Fallback: try again after a short delay in case LinkedIn script is still loading
-      const timer = setTimeout(() => {
-        const delayedLinkedInTracker = window.lintrk;
-        if (typeof window !== 'undefined' && delayedLinkedInTracker) {
-          try {
-            delayedLinkedInTracker('track', { conversion_id: 19972388 });
-            console.log('LinkedIn conversion tracked successfully (delayed)');
-          } catch (error) {
-            console.error('Error tracking LinkedIn conversion (delayed):', error);
-          }
-        }
-      }, 1000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
